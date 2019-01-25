@@ -1,0 +1,7 @@
+---
+  applications:
+    - instances: 1
+      name : socialloginana2408
+      memory: 128M
+      domain: mybluemix.net
+      host: socialloginana2408
