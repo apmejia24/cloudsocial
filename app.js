@@ -18,7 +18,10 @@ const SlackStrategy = require ('passport-slack').Strategy
 const GoogleStrategy = require ('passport-google-oauth').OAuth2Strategy
 console.log(process.env.MONGODB);
 mongoose
-  .connect(process.env.MONGODB, {useNewUrlParser: true})
+  .connect(
+    process.env.MONGODB,
+    { useNewUrlParser: true }
+  )
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -40,6 +43,7 @@ app.use(session({
   secret:'jajlklkhnvlknvkdlnbdvklsnblsdnbñsldnb',
   resave:true,
   saveUninitialized:true
+  store:new MongoStore ({ mongooseConnection : mongoose.connection })
 }))
 
 passport.serializeUser((user, callback)=>{

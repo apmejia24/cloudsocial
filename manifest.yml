@@ -2,6 +2,8 @@
   applications:
     - instances: 1
       name : socialloginana2408
-      memory: 128M
+      memory: 256M
       domain: mybluemix.net
       host: socialloginana2408
+      path: .
+      command: npm start
